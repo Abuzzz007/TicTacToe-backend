@@ -52,7 +52,7 @@ const Gamesockets = (io) => {
         socket.on('leaveRoom', ({ RoomId }) => {
             socket.leave(RoomId);
             // console.log('A User has left room: ' + RoomId);
-    
+            io.to(RoomId).emit('leftroom');
         });
     
         socket.on('Room_move', ({ RoomId, squares }) => {
